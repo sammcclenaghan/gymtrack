@@ -13,6 +13,8 @@ class WorkoutsController < ApplicationController
   # GET /workouts/new
   def new
     @workout = Workout.new
+    @workout.starts_at = DateTime.now
+
   end
 
   # GET /workouts/1/edit
