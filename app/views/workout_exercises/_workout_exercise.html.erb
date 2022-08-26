@@ -1,0 +1,17 @@
+<div id="<%= dom_id workout_exercise %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Workout:</strong>
+    <%= workout_exercise.workout_id %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Exercise:</strong>
+    <%= workout_exercise.exercise_id %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this workout exercise", workout_exercise, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this workout exercise', edit_workout_exercise_path(workout_exercise), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
