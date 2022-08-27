@@ -25,7 +25,7 @@ class WorkoutExercisesController < ApplicationController
 
     respond_to do |format|
       if @workout_exercise.save
-        format.html { redirect_to workout_exercise_url(@workout_exercise), notice: "Workout exercise was successfully created." }
+        format.html { redirect_to workout_url(@workout_exercise.workout), notice: "Workout exercise was successfully created." }
         format.json { render :show, status: :created, location: @workout_exercise }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class WorkoutExercisesController < ApplicationController
   def update
     respond_to do |format|
       if @workout_exercise.update(workout_exercise_params)
-        format.html { redirect_to workout_exercise_url(@workout_exercise), notice: "Workout exercise was successfully updated." }
+        format.html { redirect_to workout_url(@workout_exercise), notice: "Workout exercise was successfully updated." }
         format.json { render :show, status: :ok, location: @workout_exercise }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,8 +52,7 @@ class WorkoutExercisesController < ApplicationController
     @workout_exercise.destroy
 
     respond_to do |format|
-      format.html { redirect_to workout_exercises_url, notice: "Workout exercise was successfully destroyed." }
-      format.json { head :no_content }
+      format.html { redirect_to workout_url(@workout_exercise.workout), notice: "Workout exercise was successfully destroyed." }
     end
   end
 

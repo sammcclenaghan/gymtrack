@@ -6,9 +6,9 @@ class WorkoutsController < ApplicationController
     @workouts = Workout.all
   end
 
-  # GET /workouts/1 or /workouts/1.json
-  def show
-  end
+  # # GET /workouts/1 or /workouts/1.json
+  # def show
+  # end
 
   # GET /workouts/new
   def new
@@ -40,8 +40,8 @@ class WorkoutsController < ApplicationController
   def update
     respond_to do |format|
       if @workout.update(workout_params)
-        format.html { redirect_to workout_url(@workout), notice: "Workout was successfully updated." }
-        format.json { render :show, status: :ok, location: @workout }
+        format.html { redirect_to workouts_url, notice: "Workout was successfully updated." }
+        # format.json { render :show, status: :ok, location: @workout }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @workout.errors, status: :unprocessable_entity }
@@ -55,7 +55,6 @@ class WorkoutsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to workouts_url, notice: "Workout was successfully destroyed." }
-      format.turbo_stream
     end
   end
 
