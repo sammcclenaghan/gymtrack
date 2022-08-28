@@ -1,4 +1,4 @@
-<%= form_with(model: workout_set, class: "contents") do |form| %>
+<%= form_with(model: [workout_exercise, workout_set], class: "contents") do |form| %>
   <% if workout_set.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
       <h2><%= pluralize(workout_set.errors.count, "error") %> prohibited this workout_set from being saved:</h2>

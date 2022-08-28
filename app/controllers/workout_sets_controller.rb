@@ -12,7 +12,8 @@ class WorkoutSetsController < ApplicationController
 
   # GET /workout_sets/new
   def new
-    @workout_set = WorkoutSet.new
+    @workout_exercise = WorkoutExercise.find(params[:workout_exercise_id])
+    @workout_set = @workout_exercise.workout_sets.build
   end
 
   # GET /workout_sets/1/edit
@@ -21,11 +22,12 @@ class WorkoutSetsController < ApplicationController
 
   # POST /workout_sets or /workout_sets.json
   def create
-    @workout_set = WorkoutSet.new(workout_set_params)
+    @workout_exercise = WorkoutExercise.find(params[:workout_exercise_id])
+    @workout_set = @workout_exercise.workout_sets.new(workout_set_params)
 
     respond_to do |format|
       if @workout_set.save
-        format.html { redirect_to workout_set_url(@workout_set), notice: "Workout set was successfully created." }
+        format.html { redirect_to workout_url(@workout_exercise.workout), notice: "Workout set was successfully created." }
         format.json { render :show, status: :created, location: @workout_set }
       else
         format.html { render :new, status: :unprocessable_entity }
