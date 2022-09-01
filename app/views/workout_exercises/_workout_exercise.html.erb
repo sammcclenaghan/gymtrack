@@ -3,9 +3,11 @@
     <%= workout_exercise.exercise.name %>
   </p>
 
-  <%= button_to 'Delete', workout_exercise_path(workout_exercise), method: :delete %>
+  <%= button_to 'Delete', workout_exercise_path(workout_exercise), method: 
+  :delete %>
 
-  <%= link_to 'Add Set', new_workout_exercise_workout_set_path(workout_exercise)%>
+ <%= link_to 'Add Set', new_workout_exercise_workout_set_path(workout_exercise), data: { turbo_frame: dom_id(WorkoutSet.new)}%> 
 
-  <%= render workout_exercise.workout_sets %>
+  <%= turbo_frame_tag WorkoutSet.new %>
+  <%= render workout_exercise.workout_sets, workout_exercise: workout_exercise %>
 

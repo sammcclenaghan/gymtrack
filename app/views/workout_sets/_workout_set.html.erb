@@ -1,23 +1,20 @@
-<div id="<%= dom_id workout_set %>">
+  <div class="grid grid-cols-5 gap-3 bg-slate-50">
+    <div class="my-5">
+      <strong class="block font-medium mb-1">Set number:</strong>
+      <%= workout_set.set_number %>
+    </div>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Set number:</strong>
-    <%= workout_set.set_number %>
-  </p>
+    <div class="my-5">
+      <strong class="block font-medium mb-1">Weight:</strong>
+      <%= workout_set.weight %>
+    </div>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Weight:</strong>
-    <%= workout_set.weight %>
-  </p>
+    <div class="my-5">
+      <strong class="block font-medium mb-1">Reps:</strong>
+      <%= workout_set.reps %>
+    </div>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Reps:</strong>
-    <%= workout_set.reps %>
-  </p>
-
-  <% if action_name != "show" %>
-    <%= link_to "Show this workout set", workout_set, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this workout set', edit_workout_set_path(workout_set), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
-</div>
+    <div class="my-5">
+      <%= button_to 'Delete',workout_exercise_workout_set_path(workout_exercise, workout_set), method: :delete, class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    </div>
+  </div>
