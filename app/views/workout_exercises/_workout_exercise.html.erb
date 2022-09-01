@@ -9,5 +9,9 @@
  <%= link_to 'Add Set', new_workout_exercise_workout_set_path(workout_exercise), data: { turbo_frame: dom_id(WorkoutSet.new)}%> 
 
   <%= turbo_frame_tag WorkoutSet.new %>
-  <%= render workout_exercise.workout_sets, workout_exercise: workout_exercise %>
+
+
+  <div id="sets">
+      <%= render workout_exercise.workout_sets, workout_exercise: workout_exercise %>
+  </div>
 

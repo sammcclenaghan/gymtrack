@@ -27,8 +27,10 @@ class WorkoutSetsController < ApplicationController
 
     respond_to do |format|
       if @workout_set.save
-        format.html { redirect_to workout_url(@workout_exercise.workout), notice: "Workout set was successfully created." }
-        format.json { render :show, status: :created, location: @workout_set }
+        format.turbo_stream {render turbo_stream: [
+          turbo_stream.prepend("sets", @workout_set),
+          turbo_stream.update(WorkoutSet.new, "")
+        ] }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @workout_set.errors, status: :unprocessable_entity }
