@@ -27,10 +27,7 @@ class WorkoutSetsController < ApplicationController
 
     respond_to do |format|
       if @workout_set.save
-        format.turbo_stream {render turbo_stream: [
-          turbo_stream.prepend("sets", @workout_set),
-          turbo_stream.update(WorkoutSet.new, "")
-        ] }
+        format.turbo_stream 
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @workout_set.errors, status: :unprocessable_entity }

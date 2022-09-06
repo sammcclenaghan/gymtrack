@@ -6,12 +6,12 @@
   <%= button_to 'Delete', workout_exercise_path(workout_exercise), method: 
   :delete %>
 
- <%= link_to 'Add Set', new_workout_exercise_workout_set_path(workout_exercise), data: { turbo_frame: dom_id(WorkoutSet.new)}%> 
+ <%= link_to 'Add Set', new_workout_exercise_workout_set_path(workout_exercise), data: { turbo_frame: nested_dom_id(workout_exercise, WorkoutSet.new)}%> 
 
-  <%= turbo_frame_tag WorkoutSet.new %>
+  <%= turbo_frame_tag nested_dom_id(workout_exercise, WorkoutSet.new) %>
 
 
-  <div id="sets">
+  <%= turbo_frame_tag nested_dom_id(workout_exercise, "sets") do %>
       <%= render workout_exercise.workout_sets, workout_exercise: workout_exercise %>
-  </div>
+  <% end %>
 
