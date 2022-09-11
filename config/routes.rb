@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :workout_sets
   end
   
+  resources :favourites, only: [:create, :destroy]
   resources :workouts
   resources :exercises
 end

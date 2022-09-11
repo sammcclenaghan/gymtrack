@@ -12,7 +12,7 @@ class WorkoutsController < ApplicationController
 
   # GET /workouts/new
   def new
-    @workout = Workout.new
+    @workout = current_user.workouts.build
     @workout.starts_at = DateTime.now
 
   end
@@ -23,7 +23,7 @@ class WorkoutsController < ApplicationController
 
   # POST /workouts or /workouts.json
   def create
-    @workout = Workout.new(workout_params)
+    @workout = current_user.workouts.build(workout_params)
 
     respond_to do |format|
       if @workout.save
@@ -66,6 +66,6 @@ class WorkoutsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def workout_params
-      params.require(:workout).permit(:name, :starts_at)
+      params.require(:workout).permit(:name, :starts_at, :favourite, :user_id)
     end
 end

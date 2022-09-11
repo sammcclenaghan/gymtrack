@@ -4,4 +4,15 @@ class Workout < ApplicationRecord
   belongs_to :user
 
   validates :name, presence: true
+
+  def favourite!
+    self.favourite = true
+    self.save!
+  end
+
+  def unfavourite!
+    self.favourite = false
+    self.save!
+  end
+
 end
