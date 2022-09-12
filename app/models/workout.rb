@@ -5,6 +5,15 @@ class Workout < ApplicationRecord
 
   validates :name, presence: true
 
+  def self.from_workout(original_workout)
+    workout = new
+    workout.name = original_workout.name
+    workout.starts_at = DateTime.now
+    workout.user_id = original_workout.user_id
+    workout.save!
+    workout
+  end
+
   def favourite!
     self.favourite = true
     self.save!
@@ -14,5 +23,4 @@ class Workout < ApplicationRecord
     self.favourite = false
     self.save!
   end
-
 end

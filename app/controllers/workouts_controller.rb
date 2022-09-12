@@ -21,6 +21,18 @@ class WorkoutsController < ApplicationController
   def edit
   end
 
+  def clone
+    @old_workout = Workout.find(params[:id])
+    @workout = Workout.from_workout(@old_workout)
+    # @workout.workout_exercises << @old_workout.workout_exercises
+    @old_workout.workout_exercises.each do |we|
+     @workout.workout_exercises.create(exercise_id: we.exercise_id)
+    end
+    respond_to do |format|
+      format.html { redirect_to workout_url(@workout), notice: "Workout was successfully cloned." }
+    end
+  end
+
   # POST /workouts or /workouts.json
   def create
     @workout = current_user.workouts.build(workout_params)

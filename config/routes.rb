@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   end
   
   resources :favourites, only: [:create, :destroy]
-  resources :workouts
+  resources :workouts do
+    post 'clone', on: :member
+  end
   resources :exercises
 end
