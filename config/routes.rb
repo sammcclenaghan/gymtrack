@@ -5,10 +5,10 @@ Rails.application.routes.draw do
   resources :workout_exercises do
     resources :workout_sets
   end
-  
-  resources :favourites, only: [:create, :destroy]
+
   resources :workouts do
     post 'clone', on: :member
+    resource :favourites, only: [:create, :destroy]
   end
   resources :exercises
 end
