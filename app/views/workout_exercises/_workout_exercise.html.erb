@@ -1,12 +1,11 @@
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Exercise:</strong>
-    <%= workout_exercise.exercise.name %>
-  </p>
+  <div class="my-5">
+    <h2 class="text-2xl">Exercise:</h2><%= workout_exercise.exercise.name%>
+  </div>
 
+<div class="flex flex-column">
   <%= button_to 'Delete', workout_exercise_path(workout_exercise), method: 
-  :delete %>
-
- <%= link_to 'Add Set', new_workout_exercise_workout_set_path(workout_exercise), data: { turbo_frame: nested_dom_id(workout_exercise, WorkoutSet.new)}%> 
+  :delete, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium"%><%= link_to 'Add Set', new_workout_exercise_workout_set_path(workout_exercise), data: { turbo_frame: nested_dom_id(workout_exercise, WorkoutSet.new)}, class: "flex block rounded-lg mx-5 py-3 px-5 w-28 bg-blue-400 text-white block font-medium align-self-center"%> 
+</div>
 
   <%= turbo_frame_tag nested_dom_id(workout_exercise, WorkoutSet.new) %>
 

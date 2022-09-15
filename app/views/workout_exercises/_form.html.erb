@@ -1,14 +1,12 @@
 <%= form_with(model: WorkoutExercise.new, class: "contents") do |form| %>
+    <div class="my-5">
+      <%= form.hidden_field :workout_id, value: workout.id %>
+    </div>
+  <div>
+    <div class="my-5">
+      <%= form.collection_select :exercise_id, Exercise.all, :id, :name%>
 
-  <div class="my-5">
-    <%= form.hidden_field :workout_id, value: workout.id %>
-  </div>
-
-  <div class="my-5">
-    <%= form.collection_select :exercise_id, Exercise.all, :id, :name%>
-  </div>
-
-  <div class="inline">
-    <%= form.submit "Add Exercise", class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+      <%= form.submit "Add Exercise", class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+    </div>
   </div>
 <% end %>
