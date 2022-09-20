@@ -1,0 +1,37 @@
+<%
+=begin%>
+ <%= render "devise/shared/links" %> 
+<%
+=end%>
+
+        <div class="bg-grey-lighter min-h-screen flex flex-col">
+            <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
+                <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
+                    <h1 class="mb-8 text-3xl text-center text-indigo-600">Log in</h1>
+                    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                      <%= render "devise/shared/error_messages", resource: resource %>
+
+                      <div>
+                        <%= f.label :email, class: "text-center text-md text-indigo-500 mt-4" %><br />
+                        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "example@example.com", class: "block border border-grey-light w-full p-3 rounded mb-4"%>
+                      </div>
+
+                      <div>
+                        <%= f.label :password, class: "text-center text-md text-indigo-500 mt-4"%>
+                        <%= f.password_field :password, autocomplete: "new-password", class: "block border border-grey-light w-full p-3 rounded mb-4"%>
+                      </div>
+
+                      <% if devise_mapping.rememberable? %>
+                        <div class="field">
+                          <%= f.check_box :remember_me %>
+                          <%= f.label :remember_me %>
+                        </div>
+                      <% end %>
+
+                      <div>
+                        <%= f.submit "Log in", class: "mx-auto md:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out" %>
+                      </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
