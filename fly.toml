@@ -1,6 +1,6 @@
-# fly.toml file generated for gym-track on 2022-09-16T21:55:58-06:00
+# fly.toml file generated for gymtrack on 2022-09-19T21:27:13-06:00
 
-app = "gym-track"
+app = "gymtrack"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
@@ -12,6 +12,10 @@ processes = []
 
 [deploy]
   release_command = "bin/rails fly:release"
+
+[mounts]
+  source="gymtrack"
+  destination="/mnt/gymtrack"
 
 [env]
   PORT = "8080"

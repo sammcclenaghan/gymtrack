@@ -73,10 +73,6 @@ group :test do
   gem "webdrivers"
 end
 
-group :production do
-  gem "pg", "~> 1.4"
-end
-
 gem "tailwindcss-rails", "~> 2.0"
 
 
