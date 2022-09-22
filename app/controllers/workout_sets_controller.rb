@@ -54,7 +54,7 @@ class WorkoutSetsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to workout_sets_url, notice: "Workout set was successfully destroyed." }
-      format.turbo_stream
+      format.turbo_stream 
     end
   end
 

@@ -29,7 +29,7 @@ class WorkoutsController < ApplicationController
      @workout.workout_exercises.create(exercise_id: we.exercise_id)
     end
     respond_to do |format|
-      format.html { redirect_to workout_url(@workout), notice: "Workout was successfully cloned." }
+      format.html { redirect_to workout_url(@workout), notice: "Cloned workout succesfully" }
     end
   end
 
