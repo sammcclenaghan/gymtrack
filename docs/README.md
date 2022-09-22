@@ -1,3 +1,5 @@
+
+```mermaid
 graph TD
   %%Initialize User and ensure they have an account
   start([Start]) -->|Get User| user_sign_in_check{User is signed in?}
@@ -20,3 +22,4 @@ graph TD
   new_workout-->check_title_input(User inputs title?)
   check_title_input-->|Yes|save_to_database
   check_title_input-->|No|error_response[/Send Turbo_Stream error response/]
+  ```
