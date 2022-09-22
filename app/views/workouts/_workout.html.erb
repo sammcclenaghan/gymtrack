@@ -28,10 +28,10 @@
           <%= link_to workout.name, workout_path(workout), class: "text-2xl font-bold antialiased hover:text-blue-600 mx-9"%>
         </div>
 
-        <div class = "flex justify-between" >
-          <%= button_to 'Destroy this workout', workout_path(workout), method: :delete, class: "rounded-lg py-4 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+        <div class="flex justify-between" >
+          <%= button_to 'Destroy this workout', workout_path(workout), method: :delete, class: "mx-auto lg:mx-0 hover:underline bg-indigo-300 text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"%> 
 
-          <%= link_to 'Edit this workout', edit_workout_path(workout), class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-lg px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" %></br></br></br>
+          <%= link_to 'Edit this workout', edit_workout_path(workout), class: "mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"%>
         </div>
       </div>
   </div>
