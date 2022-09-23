@@ -67,6 +67,7 @@ class WorkoutsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to workouts_url, notice: "Workout was successfully destroyed." }
+      format.turbo_stream
     end
   end
 
