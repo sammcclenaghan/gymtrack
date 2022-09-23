@@ -5,8 +5,8 @@
   <div>
     <div class="my-5">
       <%= form.collection_select :exercise_id, Exercise.all, :id, :name%>
-
       <%= form.submit "Add Exercise", class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+      <%= link_to 'New exercise', new_exercise_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium" %>
     </div>
   </div>
 <% end %>

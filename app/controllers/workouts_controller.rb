@@ -6,9 +6,10 @@ class WorkoutsController < ApplicationController
     @workouts = current_user.workouts.ordered
   end
 
-  # # GET /workouts/1 or /workouts/1.json
-  # def show
-  # end
+  # GET /workouts/1 or /workouts/1.json
+  def show
+    @workout_exercises = @workout.workout_exercises.ordered
+  end
 
   # GET /workouts/new
   def new
