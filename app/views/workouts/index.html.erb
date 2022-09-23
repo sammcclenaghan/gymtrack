@@ -9,7 +9,11 @@
 
   </div>
 
-  <%= turbo_frame_tag Workout.new %>
+  <%= turbo_frame_tag Workout.new do %>
+    <% if @workouts.none? %>
+      <%= render "workouts/empty_state" %>
+    <% end %>
+  <% end %>
 
   <%= turbo_frame_tag "workouts" do %>
     <%= render @workouts %>

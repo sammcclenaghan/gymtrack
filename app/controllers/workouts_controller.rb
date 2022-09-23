@@ -40,7 +40,7 @@ class WorkoutsController < ApplicationController
     respond_to do |format|
       if @workout.save
         format.html { redirect_to workout_url(@workout), notice: "Workout was successfully created." }
-        format.turbo_stream
+        format.turbo_stream { flash.now[:notice] = "Workout was successfully created." }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @workout.errors, status: :unprocessable_entity }
@@ -53,7 +53,7 @@ class WorkoutsController < ApplicationController
     respond_to do |format|
       if @workout.update(workout_params)
         format.html { redirect_to workouts_url, notice: "Workout was successfully updated." }
-        # format.json { render :show, status: :ok, location: @workout }
+        format.turbo_stream { flash.now[:notice] = "Workout was successfully updated."}
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @workout.errors, status: :unprocessable_entity }
@@ -67,7 +67,7 @@ class WorkoutsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to workouts_url, notice: "Workout was successfully destroyed." }
-      format.turbo_stream
+      format.turbo_stream {flash.now[:notice] = "Workout was successfully destroyed."}
     end
   end
 
