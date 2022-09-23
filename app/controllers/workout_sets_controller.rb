@@ -13,7 +13,7 @@ class WorkoutSetsController < ApplicationController
   # GET /workout_sets/new
   def new
     @workout_exercise = WorkoutExercise.find(params[:workout_exercise_id])
-    @workout_set = @workout_exercise.workout_sets.build
+    @workout_set = @workout_exercise.workout_sets.build(set_number: @workout_exercise.workout_sets.size + 1)
   end
 
   # GET /workout_sets/1/edit
