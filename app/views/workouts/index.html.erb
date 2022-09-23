@@ -2,10 +2,16 @@
 
   <div class="flex justify-between items-center">
     <h1 class="font-bold text-4xl">Workouts</h1>
-    <%= link_to 'New workout', new_workout_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    <%= link_to 'New workout', 
+                new_workout_path, 
+                class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium",
+                data: { turbo_frame: dom_id(Workout.new) } %>
+
   </div>
 
-  <div id="workouts" class="min-w-full"></br></br>
+  <%= turbo_frame_tag Workout.new %>
+
+  <%= turbo_frame_tag "workouts" do %>
     <%= render @workouts %>
-  </div>
+  <% end %>
 </div>
