@@ -5,4 +5,8 @@ class WorkoutExercise < ApplicationRecord
   belongs_to :exercise
 
   has_many :workout_sets, dependent: :destroy
+
+  def total_weight
+    workout_sets.sum(&:total_weight)
+  end
 end
