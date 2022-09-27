@@ -77,3 +77,5 @@ gem "tailwindcss-rails", "~> 2.0"
 
 
 gem "devise", "~> 4.8"
+
+gem "view_component", "~> 2.61"

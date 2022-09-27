@@ -1,8 +1,8 @@
 class Workout < ApplicationRecord
   scope :ordered, -> { order(id: :desc) }
 
-  has_many :exercises, through: :workout_exercises
   has_many :workout_exercises, dependent: :destroy
+  has_many :exercises, through: :workout_exercises
   belongs_to :user
 
   validates :name, presence: true
