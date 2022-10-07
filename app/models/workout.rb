@@ -7,6 +7,11 @@ class Workout < ApplicationRecord
 
   validates :name, presence: true
 
+  def total_weight
+    workout_exercises.sum(&:total_weight)
+  end
+
+
   def self.from_workout(original_workout)
     workout = new
     workout.name = original_workout.name
