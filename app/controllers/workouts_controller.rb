@@ -15,7 +15,6 @@ class WorkoutsController < ApplicationController
   def new
     @workout = current_user.workouts.build
     @workout.starts_at = DateTime.now
-
   end
 
   # GET /workouts/1/edit
