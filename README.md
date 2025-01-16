@@ -1,24 +1,10 @@
-# README
+# This is GymTrack
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+GymTrack was created for my Computer Science internal assesment as a solution to my local gym-goers!!
 
-Things you may want to cover:
+GymTrack is created in Ruby on Rails 7 using Hotwire and Stimulus.js
 
-* Ruby version
+Gymtrack highlighted the want for simplicity and so the app works completely for
+- The logging of Exercises, sets, reps and weights.
+- The ability to create and manage personalized workout routines.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
